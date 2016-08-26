@@ -13,6 +13,7 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var cameraButtonView: UIBarButtonItem!
 	
+	@IBOutlet weak var topBar: UIToolbar!
 	@IBOutlet weak var bottomBar: UIToolbar!
 	
 	@IBOutlet weak var topTextField: UITextField!
@@ -58,13 +59,14 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 		super.viewWillDisappear(animated)
 	}
 	
-	
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
 	
 	func generateMemedImage() -> UIImage {
 		
-		// TODO: Hide toolbar and navbar
-		
 		bottomBar.hidden = true
+		topBar.hidden = true
 		
 		// Render view to an image
 		UIGraphicsBeginImageContext(self.view.frame.size)
@@ -74,15 +76,22 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 			UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		
-		// TODO:  Show toolbar and navbar
 		bottomBar.hidden = false
+		topBar.hidden = false
 		
 		return memedImage
 	}
 	
 	func save() {
 		
-		let meme = Meme(topText: topTextField.text, bottomTextString: bottomTextField.text, originalImage: imageView.image, memeImage: generateMemedImage())
+		let meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imageView.image, memeImage: generateMemedImage())
+		
+		guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+			// Apply Error Handling here. Could display an AlertView
+			return
+		}
+		
+		appDelegate.memes.append(meme)
 		
 	}
 	
@@ -148,11 +157,16 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 			if completed {
 				self.save()
 			}
+			self.dismissViewControllerAnimated(true, completion: nil)
 		}
 		
-		self.presentViewController(activityViewController, animated: true, completion: nil)
+		presentViewController(activityViewController, animated: true, completion: nil)
 		
-		
+	}
+	
+	
+	@IBAction func cancel(sender: AnyObject) {
+		dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 	// MARK: - Delegates

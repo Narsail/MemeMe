@@ -12,7 +12,7 @@ import UIKit
 struct Meme {
 	
 	let topText: String?
-	let bottomTextString: String?
+	let bottomText: String?
 	let originalImage: UIImage?
 	let memeImage: UIImage
 	

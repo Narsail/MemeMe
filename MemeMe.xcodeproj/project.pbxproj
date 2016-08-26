@@ -13,6 +13,10 @@
 		2A02080E1D6F38A300F00C02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A02080C1D6F38A300F00C02 /* LaunchScreen.storyboard */; };
 		2A0208171D6F391600F00C02 /* ImageEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0208161D6F391600F00C02 /* ImageEditorVC.swift */; };
 		2A02081A1D6F4BE700F00C02 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0208191D6F4BE700F00C02 /* Meme.swift */; };
+		2AA2E7441D70D5E70013BB95 /* MemeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA2E7431D70D5E70013BB95 /* MemeCVCell.swift */; };
+		2AAFB43F1D70481700E81A21 /* SentMemeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFB43E1D70481700E81A21 /* SentMemeTVC.swift */; };
+		2AAFB4411D70482700E81A21 /* SentMemeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFB4401D70482700E81A21 /* SentMemeCVC.swift */; };
+		2AAFB4431D704C2900E81A21 /* MemeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFB4421D704C2900E81A21 /* MemeTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		2A02080F1D6F38A300F00C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A0208161D6F391600F00C02 /* ImageEditorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorVC.swift; sourceTree = "<group>"; };
 		2A0208191D6F4BE700F00C02 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		2AA2E7431D70D5E70013BB95 /* MemeCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCVCell.swift; sourceTree = "<group>"; };
+		2AAFB43E1D70481700E81A21 /* SentMemeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemeTVC.swift; sourceTree = "<group>"; };
+		2AAFB4401D70482700E81A21 /* SentMemeCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemeCVC.swift; sourceTree = "<group>"; };
+		2AAFB4421D704C2900E81A21 /* MemeTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		2A0208021D6F38A300F00C02 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				2AAFB4441D704C3000E81A21 /* Views */,
 				2A0208181D6F4BDE00F00C02 /* Model */,
 				2A0208151D6F38F600F00C02 /* ViewController */,
 				2A0208031D6F38A300F00C02 /* AppDelegate.swift */,
@@ -71,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				2A0208161D6F391600F00C02 /* ImageEditorVC.swift */,
+				2AAFB43E1D70481700E81A21 /* SentMemeTVC.swift */,
+				2AAFB4401D70482700E81A21 /* SentMemeCVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -81,6 +92,15 @@
 				2A0208191D6F4BE700F00C02 /* Meme.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		2AAFB4441D704C3000E81A21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AAFB4421D704C2900E81A21 /* MemeTVCell.swift */,
+				2AA2E7431D70D5E70013BB95 /* MemeCVCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AAFB4411D70482700E81A21 /* SentMemeCVC.swift in Sources */,
+				2AAFB4431D704C2900E81A21 /* MemeTVCell.swift in Sources */,
+				2AA2E7441D70D5E70013BB95 /* MemeCVCell.swift in Sources */,
 				2A02081A1D6F4BE700F00C02 /* Meme.swift in Sources */,
 				2A0208171D6F391600F00C02 /* ImageEditorVC.swift in Sources */,
 				2A0208041D6F38A300F00C02 /* AppDelegate.swift in Sources */,
+				2AAFB43F1D70481700E81A21 /* SentMemeTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +334,7 @@
 				2A0208141D6F38A300F00C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
