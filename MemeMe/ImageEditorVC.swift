@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var cameraButtonView: UIBarButtonItem!
@@ -20,6 +20,12 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 	
 	@IBOutlet weak var shareButton: UIBarButtonItem!
 	
+	func configureTextField(textField: UITextField, defaultAttributes: [String: AnyObject]) {
+		textField.defaultTextAttributes = defaultAttributes
+		textField.textAlignment = .Center
+		
+		textField.delegate = self
+	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
@@ -36,10 +42,8 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 		]
 		
 		// Change Attributes of Textfields
-		topTextField.defaultTextAttributes = memeTextAttributes
-		topTextField.textAlignment = NSTextAlignment.Center
-		bottomTextField.defaultTextAttributes = memeTextAttributes
-		bottomTextField.textAlignment = NSTextAlignment.Center
+		configureTextField(topTextField, defaultAttributes: memeTextAttributes)
+		configureTextField(bottomTextField, defaultAttributes: memeTextAttributes)
 		
 		// Subscribe to Notifications
 		subscribeToKeyboardNotifications()
@@ -53,6 +57,8 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 		unsubscribeToKeyboardNotifications()
 		super.viewWillDisappear(animated)
 	}
+	
+	
 	
 	func generateMemedImage() -> UIImage {
 		
@@ -95,15 +101,13 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 	func keyboardWillShow(notification: NSNotification){
 		// With the reprsented implementation i got weird transitions when clicking on the top textfield and directly clicking on the bottom field
 		// afterwards. It double shifted to the top.
-		if bottomTextField.editing {
+		if bottomTextField.isFirstResponder() {
 			view.frame.origin.y -= getKeyboardHeight(notification)
 		}
 	}
 	
 	func keyboardWillHide(notification: NSNotification) {
-		if view.frame.origin.y != 0 {
-			view.frame.origin.y += getKeyboardHeight(notification)
-		}
+		view.frame.origin.y = 0
 	}
 	
 	func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -121,29 +125,34 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 	// MARK: - Actions
 
 	@IBAction func pickAnImage(sender: AnyObject) {
-		
-		let imagePickerVC = UIImagePickerController()
-		imagePickerVC.delegate = self
-		imagePickerVC.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-		
-		self.presentViewController(imagePickerVC, animated: true, completion: nil)
-		
+		presentPicker(.PhotoLibrary)
 	}
 	
 	@IBAction func pickAnImageFromCamera(sender: AnyObject) {
+		presentPicker(.Camera)
+	}
+	
+	func presentPicker(sourceType: UIImagePickerControllerSourceType) {
 		let imagePickerVC = UIImagePickerController()
 		imagePickerVC.delegate = self
-		imagePickerVC.sourceType = UIImagePickerControllerSourceType.Camera
+		imagePickerVC.sourceType = sourceType
 		
 		self.presentViewController(imagePickerVC, animated: true, completion: nil)
 	}
 	
 	@IBAction func share(sender: AnyObject) {
+		// Prepare the Activity View Controller
 		let activityViewController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
-		self.presentViewController(activityViewController, animated: true, completion: {
-			// Save the Meme
-			self.save()
-		})
+		activityViewController.completionWithItemsHandler = {
+			type, completed, returnedItems, error in
+			if completed {
+				self.save()
+			}
+		}
+		
+		self.presentViewController(activityViewController, animated: true, completion: nil)
+		
+		
 	}
 	
 	// MARK: - Delegates
@@ -159,6 +168,13 @@ class ImageEditorVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 	
 	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
 		dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	// MARK: UITextField Delegate
+	
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return false
 	}
 	
 }
