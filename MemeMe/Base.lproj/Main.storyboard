@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-jE-Q4Q">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-jE-Q4Q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T5-VG-jUB">
@@ -97,7 +97,7 @@
                             <constraint firstItem="w4t-fR-2Tq" firstAttribute="top" secondItem="eIw-jE-Q4Q" secondAttribute="top" constant="10" id="bfe-W4-qgP"/>
                             <constraint firstItem="QJW-DX-43S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cf2-mA-LCW"/>
                             <constraint firstItem="eIw-jE-Q4Q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kPp-yy-5JB"/>
-                            <constraint firstItem="eIw-jE-Q4Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="kan-XY-Qe5"/>
+                            <constraint firstItem="eIw-jE-Q4Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="kan-XY-Qe5"/>
                             <constraint firstItem="eIw-jE-Q4Q" firstAttribute="trailing" secondItem="2T5-VG-jUB" secondAttribute="trailing" id="lxd-wg-fYA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eIw-jE-Q4Q" secondAttribute="bottom" id="nqn-c1-etw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QJW-DX-43S" secondAttribute="trailing" constant="-20" id="oAP-dj-JOK"/>
@@ -161,7 +161,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtK-P9-HkV">
                                             <rect key="frame" x="188" y="16" width="404" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jus-g3-ZDb">
@@ -170,7 +170,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="UmW-Ca-dp9"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -215,10 +215,46 @@
                             <action selector="doRefresh:" destination="uV3-dl-ujG" eventType="valueChanged" id="WQp-xz-Dr0"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <segue destination="3A3-yO-e4o" kind="show" identifier="showMeme" id="DqU-Tw-iBa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ka7-2z-C3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1121" y="1215"/>
+        </scene>
+        <!--Meme DetailVC-->
+        <scene sceneID="phG-kc-rxQ">
+            <objects>
+                <viewController id="3A3-yO-e4o" customClass="MemeDetailVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U9Z-TQ-K2H"/>
+                        <viewControllerLayoutGuide type="bottom" id="bMm-nn-DnB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gvh-sL-VNk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-HR-Z4e">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qyY-HR-Z4e" firstAttribute="top" secondItem="U9Z-TQ-K2H" secondAttribute="bottom" id="AXG-dA-YjE"/>
+                            <constraint firstItem="qyY-HR-Z4e" firstAttribute="leading" secondItem="gvh-sL-VNk" secondAttribute="leadingMargin" constant="-20" id="irF-3E-qIq"/>
+                            <constraint firstItem="qyY-HR-Z4e" firstAttribute="trailing" secondItem="gvh-sL-VNk" secondAttribute="trailingMargin" constant="20" id="vRR-hs-0C9"/>
+                            <constraint firstAttribute="bottom" secondItem="qyY-HR-Z4e" secondAttribute="bottom" id="zVc-Oz-Wpy"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="memeImageView" destination="qyY-HR-Z4e" id="Mns-am-YKr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAd-46-JKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1919" y="1221"/>
         </scene>
         <!--Sent MemeCVC-->
         <scene sceneID="iMd-Ib-k4n">
@@ -283,6 +319,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="flowLayout" destination="zfF-KS-JuJ" id="xCh-8m-V2w"/>
+                        <segue destination="3A3-yO-e4o" kind="show" identifier="showMeme" id="xN6-kK-E2F"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecp-sI-QMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -339,4 +376,7 @@
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xN6-kK-E2F"/>
+    </inferredMetricsTieBreakers>
 </document>

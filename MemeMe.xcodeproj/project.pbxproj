@@ -17,6 +17,7 @@
 		2AAFB43F1D70481700E81A21 /* SentMemeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFB43E1D70481700E81A21 /* SentMemeTVC.swift */; };
 		2AAFB4411D70482700E81A21 /* SentMemeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFB4401D70482700E81A21 /* SentMemeCVC.swift */; };
 		2AAFB4431D704C2900E81A21 /* MemeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFB4421D704C2900E81A21 /* MemeTVCell.swift */; };
+		2AC257C51D71829600B504BB /* MemeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC257C41D71829600B504BB /* MemeDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2AAFB43E1D70481700E81A21 /* SentMemeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemeTVC.swift; sourceTree = "<group>"; };
 		2AAFB4401D70482700E81A21 /* SentMemeCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemeCVC.swift; sourceTree = "<group>"; };
 		2AAFB4421D704C2900E81A21 /* MemeTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTVCell.swift; sourceTree = "<group>"; };
+		2AC257C41D71829600B504BB /* MemeDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				2A0208161D6F391600F00C02 /* ImageEditorVC.swift */,
 				2AAFB43E1D70481700E81A21 /* SentMemeTVC.swift */,
 				2AAFB4401D70482700E81A21 /* SentMemeCVC.swift */,
+				2AC257C41D71829600B504BB /* MemeDetailVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				2AA2E7441D70D5E70013BB95 /* MemeCVCell.swift in Sources */,
 				2A02081A1D6F4BE700F00C02 /* Meme.swift in Sources */,
 				2A0208171D6F391600F00C02 /* ImageEditorVC.swift in Sources */,
+				2AC257C51D71829600B504BB /* MemeDetailVC.swift in Sources */,
 				2A0208041D6F38A300F00C02 /* AppDelegate.swift in Sources */,
 				2AAFB43F1D70481700E81A21 /* SentMemeTVC.swift in Sources */,
 			);

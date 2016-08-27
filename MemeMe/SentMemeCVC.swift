@@ -60,5 +60,22 @@ class SentMemeCVC: UICollectionViewController {
     
         return cell
     }
+	
+	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		performSegueWithIdentifier("showMeme", sender: indexPath)
+	}
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		guard let indexPath = sender as? NSIndexPath else {
+			return
+		}
+		
+		guard let vc = segue.destinationViewController as? MemeDetailVC else {
+			return
+		}
+		
+		vc.memeImage = memes[indexPath.row].memeImage
+		
+	}
 
 }

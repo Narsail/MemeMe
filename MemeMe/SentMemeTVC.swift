@@ -68,5 +68,22 @@ class SentMemeTVC: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
+	
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		performSegueWithIdentifier("showMeme", sender: indexPath)
+	}
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		guard let indexPath = sender as? NSIndexPath else {
+			return
+		}
+		
+		guard let vc = segue.destinationViewController as? MemeDetailVC else {
+			return
+		}
+		
+		vc.memeImage = memes[indexPath.row].memeImage
+		
+	}
 
 }
